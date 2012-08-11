@@ -5,7 +5,7 @@
   http://creativecommons.org/licenses/by/3.0/
 
   La bibliothèque graphique DrawingWindow utilisée dans ce programme est 
-  (c) 2007-2010, Arnaud Giersch  <arnaud.giersch@iut-bm.univ-fcomte.fr>, 
+  (c) 2007-2010, Arnaud Giersch <arnaud.giersch@iut-bm.univ-fcomte.fr>, 
   Tous droits réservés.
 */
 
@@ -70,7 +70,7 @@ void remplissage(DrawingWindow &w)
       cout<<endl<<"Le caractère saisi n'est pas correct, réessayez !"<<endl;
 
       for(int i=0; (float)i<(sizeof(formuletable)/sizeof(string)); i++)
-	cout<<i+1<<": "<<formuletable[i]<<endl;
+		cout<<i+1<<": "<<formuletable[i]<<endl;
 
       cout<<endl<<"Formule choisie : ";
       cin>>formule;
@@ -216,8 +216,7 @@ switch(formule)
 		  switch(rendu)
 		    {
 		    case 1:
-		      w.setColor(couleur*couleur, couleur-(couleur*couleur*couleur*couleur*
-							   couleur), 1 - couleur);
+		      w.setColor(couleur*couleur, couleur-(couleur*couleur*couleur*couleur*couleur), 1 - couleur);
 		      break;
 		    case 2:
 		      w.setColor(couleur, 0, 0);
@@ -254,9 +253,8 @@ switch(formule)
       w.drawTextBg(0, 0, chaine);
 
       /*
-	Cette partie 'zoom' récupère les coordonnées de deux clics de souris
-	à l'aide de la méthode waitMousePress() et stocke ces coordonnées 
-	à la suite du tableau zoom.
+	Cette partie 'zoom' récupère les coordonnées de deux clics de souris à l'aide de la méthode 
+	waitMousePress() et stocke ces coordonnées à la suite du tableau zoom.
 	On est obligé d'utiliser un tableau tempzoom[] pour stocker 
 	temporairement les coordonnées récupérées par la souris; 
 	leur mise à l'échelle fait appel aux données de zoom[].
@@ -274,7 +272,7 @@ switch(formule)
 	  if(i == 0 && button == 2 && nz != 0)
 	    {
 	      for(int j = 0; j<4; j++)
-		tempzoom[j] = zoom[4*nz - 4 + j];
+			tempzoom[j] = zoom[4*nz - 4 + j];
 	      enz = -1;
 	      break;
 	    }
@@ -283,7 +281,7 @@ switch(formule)
 	  if(i == 1 && button == 2)
 	    {
 	      for(int j=0; j<4; j++)
-		tempzoom[j] = zoom[4*nz + j];
+			tempzoom[j] = zoom[4*nz + j];
 	      break;
 	    }
 
@@ -291,12 +289,12 @@ switch(formule)
 	  if(button == 3)
 	    {
 	      for(int j=0; j<4; j++)
-		tempzoom[j] = zoom[4*nz + j];
+			tempzoom[j] = zoom[4*nz + j];
 
 	      if((float)rendu == sizeof(rendutable)/sizeof(string))
-		rendu = 1;
+			rendu = 1;
 	      else
-		rendu++;
+			rendu++;
 
 	      break;
 	    }
@@ -312,8 +310,8 @@ switch(formule)
 	      w.drawLine(0, zoomy, w.width, zoomy);
 	      w.drawLine(zoomx, 0, zoomx, w.height);
 	      
-	      tempzoom[i] = (zoom[4*nz + 1] - zoom[4*nz]) * zoomx / (w.width - 1) + zoom[4*nz];
-	      tempzoom[i+2] = (zoom[4*nz + 3] - zoom[4*nz + 2]) * zoomy / (w.height - 1) + zoom[4*nz+2];
+	      tempzoom[i    ] = (zoom[4*nz + 1] - zoom[4*nz    ]) * zoomx / (w.width  - 1) + zoom[4*nz  ];
+	      tempzoom[i + 2] = (zoom[4*nz + 3] - zoom[4*nz + 2]) * zoomy / (w.height - 1) + zoom[4*nz+2];
 	  
 	      enz++;
 	    }
